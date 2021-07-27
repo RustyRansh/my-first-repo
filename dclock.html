@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Clock</title>
+
+    <style>
+    
+        .clock
+        {
+            border:2px solid orange;
+            width:100%;
+            margin: auto;
+            text-align: center;
+            padding: 12px;
+            background:linear-gradient(172deg,white,wheat);
+            box-sizing: border-box;
+            border-radius: 20px;
+        }
+        .clock::before
+        {
+            content:'Current Time is:';
+            display: block;
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+            color:Black;
+        }
+
+#hours,#minutes,#seconds
+{
+    /* border:.1px solid black; */
+    color:wheat;
+    font-size: 100px;
+    display: inline-block;
+    height: 120px;
+    width: 140px;
+    background-color: rgb(36, 33, 30);
+    border-radius: 14px;
+}
+
+#dot1,#dot2
+{
+    color:black;
+    font-size: 100px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <span id="hours"></span>
+       <span id="dot1">:</span> 
+       <span id="minutes"></span>
+       <span id="dot2">:</span> 
+        <span id="seconds"></span>
+    </div>
+
+    <script>
+        setInterval(updateTime,1000);
+
+        function updateTime()
+        {
+            var a=new Date();
+            var hr=a.getHours();
+            var min=a.getMinutes();
+            var sec=a.getSeconds();
+            
+            if(hr<10)
+            {
+                hr="0"+hr;
+            }
+            if(min<10)
+            {
+                min="0"+min;
+            }
+            if(sec<10)
+            {
+                sec="0"+sec;
+            }
+            
+            hours.innerHTML=hr;
+            minutes.innerHTML=min;
+            seconds.innerHTML=sec;
+
+        }
+        </script>
+</body>
+</html>
